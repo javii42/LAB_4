@@ -1,0 +1,22 @@
+<app-nav-bar (resultadoBuscar)="FiltrarPorModelo($event)"></app-nav-bar>
+
+<div *ngIf="buscado" class="container-fluid">
+        <div class="row card-group">
+            <div  class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let objeto of vehiculos">
+              <div class="card">
+                <img class="card-img-top img-fluid" [src]="'http://localhost/API/' + objeto.rutaFoto" alt="Vehiculo">
+                <div class="card-body">
+                  <h5 class="card-title">{{objeto.modelo}}</h5>
+                  <p class="card-text"><b>Marca:</b> {{objeto.marca}}</p>
+                  <p class="card-text"><b>Cantidad de Puertas:</b> {{objeto.cantidadPuertas}}</p>
+                  <app-boton [id] = "objeto.id" ></app-boton>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+<div *ngIf="errorBusqueda">
+  <p style="color:red;">Error, no se encontro el modelo.</p>
+</div>
+
+<router-outlet></router-outlet>
