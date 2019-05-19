@@ -1,0 +1,30 @@
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="modelo">Modelo: </label>
+      <input type="text" id="modelo" formControlName = "modelo" class="form-control" [ngClass]="{ 'is-invalid': profileForm.controls['modelo'].touched && profileForm.controls['modelo'].invalid }">
+      <div *ngIf="profileForm.controls['modelo'].touched && profileForm.controls['modelo'].invalid" class="invalid-feedback">
+          <div *ngIf="profileForm.controls['modelo'].errors.required">Debe ingresar el modelo.</div>
+      </div>
+    </div>    
+    <div class="form-group">
+      <label for="cantPuertas">Cantidad de Puertas: </label>
+      <select id="cantPuertas" formControlName="cantPuertas" class="form-control">
+        <option value="Tres">Tres</option>
+        <option value="Cinco">Cinco</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="marca">Marca: </label>
+      <input type="text" id="marca" formControlName="marca" class="form-control" [ngClass]="{ 'is-invalid': profileForm.controls['modelo'].touched && profileForm.controls['modelo'].invalid }">
+      <div *ngIf="profileForm.controls['modelo'].touched && profileForm.controls['modelo'].invalid" class="invalid-feedback">
+          <div *ngIf="profileForm.controls['modelo'].errors.required">Debe ingresar la marca.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      
+      <button  [disabled]="profileForm.controls['marca'].invalid || profileForm.controls['modelo'].invalid"
+        type="submit" class="btn btn-primary">Agregar</button>
+      <button type="reset" class="btn btn-light">Cancelar</button>
+    </div>
+  </form>
+  <div *ngIf="error" class="alert alert-danger" role="alert">{{errorMessage}} </div>
