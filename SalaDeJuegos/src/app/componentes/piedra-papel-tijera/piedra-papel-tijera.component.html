@@ -1,0 +1,63 @@
+<div class="juego">
+  <div class="jugador">
+      <div class="piedraJugador">
+        <img *ngIf = "!piedraJ" src="./assets/imagenes/PiedraPapelTijera/piedraGris.png" 
+        (click) = "seleccion('piedra')"/>
+        <img *ngIf = "piedraJ" src="./assets/imagenes/PiedraPapelTijera/piedraVerde.png" 
+        (click) = "seleccion('piedra')"/>
+      </div>
+      <div class="papelJugador">
+          <img *ngIf = "!papelJ"  src="./assets/imagenes/PiedraPapelTijera/papelGris.png" 
+          (click) = "seleccion('papel')"/>
+          <img *ngIf = "papelJ"  src="./assets/imagenes/PiedraPapelTijera/papelVerde.png" 
+          (click) = "seleccion('papel')"/>
+    
+      </div>
+      <div class="tijeraJugador">
+          <img *ngIf = "!tijeraJ"  src="./assets/imagenes/PiedraPapelTijera/tijeraGris.png" 
+          (click) = "seleccion('tijera')"/>
+          <img *ngIf = "tijeraJ"  src="./assets/imagenes/PiedraPapelTijera/tijeraVerde.png" 
+          (click) = "seleccion('tijera')"/>
+    
+      </div>
+  </div>
+  <div class = "resultado">
+    <h2 *ngIf = "!jugando" style="color:white;"> 
+      <i class="material-icons">
+        arrow_upward
+      </i>
+      Seleccione una opcion...
+      <i class="material-icons">
+        arrow_upward
+        </i>
+    </h2>
+    <h2 *ngIf = "jugando && juego.gano" style="color:green;">Ganaste!</h2>
+    <h2 *ngIf = "jugando && !juego.gano && !juego.empato" style="color:red;">Perdiste</h2>
+    <h2 *ngIf = "jugando && !juego.gano && juego.empato" style="color:blue;">Empate</h2>
+    <h2 *ngIf = "jugando"><button class="btn btn-info btn-lg" (click) = "jugarNuevamente()">Jugar de nuevo.</button></h2>
+  </div>
+  <div class="maquina">
+      <div class="piedraMaquina">
+          <img *ngIf = "!piedraM" src="./assets/imagenes/PiedraPapelTijera/piedraGris.png" 
+          />
+          <img *ngIf = "piedraM" src="./assets/imagenes/PiedraPapelTijera/piedraRojo.png" 
+          />
+    
+      </div>
+      <div class="papelMaquina">
+          <img *ngIf = "!papelM" src="./assets/imagenes/PiedraPapelTijera/papelGris.png" 
+          />
+          <img *ngIf = "papelM" src="./assets/imagenes/PiedraPapelTijera/papelRojo.png" 
+          />
+    
+      </div>
+      <div class="tijeraMaquina">
+          <img *ngIf = "!tijeraM" src="./assets/imagenes/PiedraPapelTijera/tijeraGris.png" 
+          />
+          <img *ngIf = "tijeraM" src="./assets/imagenes/PiedraPapelTijera/tijeraRojo.png" 
+          />
+    
+      </div>
+
+  </div>
+</div>

@@ -1,0 +1,26 @@
+.juego{
+    width: 45%;
+    margin-left: 27.5%;
+    margin-top: 2%;
+    background-color: #cccccc;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+}
+.jugador{
+    display: inline-flex;
+    margin-top: 5%;
+}
+
+.maquina{
+    display: inline-flex;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.resultado{
+    margin-top: 2%;
+}
+img{
+    width: 125px;
+    height: auto;
+}

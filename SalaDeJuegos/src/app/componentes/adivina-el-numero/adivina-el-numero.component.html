@@ -1,0 +1,31 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!--app-menu></app-menu-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div style="text-align:center">
+  <h1 style="color:red">
+    {{nuevoJuego.nombre}}!
+  </h1>
+ </div>
+<h2></h2>
+<form name="juego">
+
+   <label>Ingrese numero:  </label> <br/>
+    <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" 
+    name="numeroIngresado" type="text" class="form-control" style="width:25%" 
+    autocomplete="off"
+    id="numeroIngresado"/>
+ 
+    <h2 [hidden]="ocultarVerificar"><button  *ngIf="nuevoJuego.numeroSecreto!=0" 
+      (click)="verificar()" class="btn btn-danger btn-lg">Verificar</button></h2>
+ 
+    <h2><button *ngIf="nuevoJuego.numeroSecreto==0 " (click)="generarnumero()" 
+       class="btn btn-success btn-lg">Nuevo número aleatorio</button></h2>
+ 
+    <h2 style="color:white;"><p *ngIf="nuevoJuego.numeroSecreto!=0" ><i class="fa fa-spinner fa-spin"></i>Esperando que ingrese un número</p></h2>
+
+    <h3 [hidden]="!nuevoJuego.gano" style="color:green">Adivinaste!</h3>
+    <h3 [hidden]="nuevoJuego.gano" style="color:red">Todavía no gano.</h3>
+
+
+</form>
+<div id="snackbar">{{Mensajes}}</div>

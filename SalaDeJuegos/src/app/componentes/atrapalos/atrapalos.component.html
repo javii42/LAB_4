@@ -1,0 +1,38 @@
+<div class="container">
+    <h4 style="color:red;">Para atrapar: Click y arrastrar!</h4>
+    <div class="row justify-content-md-center" style="margin-top: 5%;">
+            <canvas #canvas> <!-- id="atrapalosGameCanvas"
+            width="1000%" height="500%" 
+            style="border:1px solid #000000;"
+            ng-click="leerPosicion()">   -->          
+            </canvas>
+
+        </div>
+        <div class="row justify-content-md-center" *ngIf="this.jugando==false" style="margin-top: 1%;">
+            <div class="column btn btn-primary">
+                <a (click) = "comenzar()">Comenzar!</a>
+            </div>
+        </div>
+        <div class="row justify-content-md-center" *ngIf="this.jugando" style="margin-top: 1%;">
+            <div class="column">
+                <p>Atrapados: {{this.cantAtrapados}}</p>
+            </div>
+        </div>
+        <div class="row justify-content-md-center" *ngIf="this.finalizado" style="margin-top: 1%;">
+            <div class="column">
+                <h3>Promedio de tiempo atrapando: {{this.promTiempo | number}} ms</h3>
+                <h4 *ngIf="!atrapalos.gano" style="color:red">Mal promedio</h4>
+                <h4 *ngIf="atrapalos.gano" style="color:green">Excelente promedio</h4>
+            </div>
+        </div>        
+        <div class="row justify-content-md-center" *ngIf="this.finalizado" style="margin-top: 1%;">
+            
+            <h3>Atrapados:</h3>
+            <div class="column" *ngFor="let atrapado of this.atrapados">
+                <img src= "./assets/imagenes/pokemon/{{atrapado.pokemon}}.png" />
+            </div>
+        </div>
+
+</div>
+
+

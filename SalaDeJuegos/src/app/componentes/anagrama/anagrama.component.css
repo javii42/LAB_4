@@ -1,0 +1,32 @@
+.content{
+    background-color: lightblue;
+    text-align: center;
+}
+.juego{
+    display: inline-flex;
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+}
+
+.juego .letra{
+    width: 75px;
+    background: grey;
+    color: white;
+    margin-right: 2%;
+    font-size: 50px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.juego .letraInput{
+    margin-right: 2%;
+    margin-top: 2%;
+
+}
+.juego .letraInput input{
+    width: 65px;
+    font-size: 50px;
+    border-radius: 5px;
+
+}

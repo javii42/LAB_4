@@ -1,0 +1,16 @@
+
+canvas{
+    /* background: rgba(179,220,237,1);
+    background: -moz-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(215,227,41,1) 62%, rgba(49,230,76,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(179,220,237,1)), color-stop(62%, rgba(215,227,41,1)), color-stop(100%, rgba(49,230,76,1)));
+    background: -webkit-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(215,227,41,1) 62%, rgba(49,230,76,1) 100%);
+    background: -o-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(215,227,41,1) 62%, rgba(49,230,76,1) 100%);
+    background: -ms-linear-gradient(top, rgba(179,220,237,1) 0%, rgba(215,227,41,1) 62%, rgba(49,230,76,1) 100%);
+    background: linear-gradient(to bottom, rgba(179,220,237,1) 0%, rgba(215,227,41,1) 62%, rgba(49,230,76,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#31e64c', GradientType=0 );
+    border: 1px solid #000; */
+    background-image: url('../../../assets/imagenes/9294.jpg');
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+}

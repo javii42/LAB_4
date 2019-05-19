@@ -1,0 +1,61 @@
+.juego{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 2%;
+    text-align: center;
+    background-color: #bfbfbf;
+    border:  1px solid black;
+    border-radius: 5px;
+}
+.juego .operacion{
+    display: inline-flex;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.juego .operacion .numero{
+    
+    width: 150px;
+    height: auto;
+    color: white;
+    font-size: 50px;
+    background-color: #727394;
+    border-radius: 5px;
+    text-align: center !important;
+    align-content: center !important;
+}.juego .operacion .numero p{
+    
+   margin: 25%;
+}
+.juego .operacion .operador{
+    width: 150px;
+    height: auto;
+    color: white;
+    font-size: 75px;
+    background-color: #8b9486;
+    border-radius: 5px;
+    text-align: center !important;
+    align-content: center !important;
+    margin-left: 2%;
+    margin-right: 2%;
+
+}
+.juego .operacion .operador p{    
+    margin: 25%;
+    margin-top: 20%;
+}
+
+.juego .respuesta{
+    margin-left: 33.33333%;
+}
+.juego .respuesta input{
+
+    font-size: 30px;
+    border: 2px solid #DD00D7;
+}
+
+.juego .botones{ 
+    margin-top: 5%;   
+}
+
+.juego .resultado{
+}

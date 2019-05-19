@@ -1,0 +1,15 @@
+table{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 2%;
+}
+table thead{
+    text-align: center;
+    background-color: gray;
+}
+
+table tbody{
+    background-color: #8000ff;
+    color: white;
+    text-align: center;
+}

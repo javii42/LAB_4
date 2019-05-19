@@ -1,0 +1,23 @@
+<app-cabecera></app-cabecera>
+
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Correo</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>legajo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let jugador of listado" >
+      <td>{{jugador.correo}} </td>
+      <td>{{jugador.nombre}} </td> 
+      <td>{{jugador.apellido}} </td> 
+      <td>{{jugador.legajo}} </td> 
+      
+    </tr>
+   
+  </tbody>
+</table>

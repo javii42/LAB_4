@@ -1,0 +1,18 @@
+<div class="content">
+    <div *ngIf="jugando" class="juego">
+        <div class="letra" *ngFor="let elemento of juegoAnagrama.anagrama">
+            <p>{{elemento}}</p>
+        </div>
+    </div><br />
+    <div *ngIf="jugando" class="juego">
+        
+        <div class="letraInput" *ngFor="let elemento of juegoAnagrama.anagrama; let indice=index">
+            <input type="text" id="{{indice}}" maxlength="1" [(ngModel)] = "respuesta[indice]" (keyup)="onKey($event)"/>
+        </div>
+    </div>
+    
+    <button *ngIf="!jugando" (click)="jugar()" class="btn btn-info btn-lg btn-block">Jugar </button>  
+    <button *ngIf="jugando" (click)="verificar()" class="btn btn-success btn-lg btn-block">Verificar {{Tiempo}}</button>
+    <h2 *ngIf="primerJuego && !jugando && !juegoAnagrama.gano" style="color:red">Perdiste</h2>
+    <h2 *ngIf="!jugando && juegoAnagrama.gano" style="color:green">Ganaste!</h2>
+</div>
