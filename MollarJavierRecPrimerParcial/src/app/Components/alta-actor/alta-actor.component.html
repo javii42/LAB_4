@@ -1,0 +1,37 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nombre">Nombre: </label>
+      <input type="text" id="nombre" formControlName = "nombre" class="form-control" [ngClass]="{ 'is-invalid': profileForm.controls['nombre'].touched && profileForm.controls['nombre'].invalid }">
+      <div *ngIf="profileForm.controls['nombre'].touched && profileForm.controls['nombre'].invalid" class="invalid-feedback">
+          <div *ngIf="profileForm.controls['nombre'].errors.required">Debe ingresar el nombre.</div>
+      </div>
+    </div>  
+    <div class="form-group">
+      <label for="apellido">Apellido: </label>
+      <input type="text" id="apellido" formControlName = "apellido" class="form-control" [ngClass]="{ 'is-invalid': profileForm.controls['apellido'].touched && profileForm.controls['apellido'].invalid }">
+      <div *ngIf="profileForm.controls['apellido'].touched && profileForm.controls['apellido'].invalid" class="invalid-feedback">
+          <div *ngIf="profileForm.controls['apellido'].errors.required">Debe ingresar el apellido.</div>
+      </div>
+    </div> 
+    <div class="form-group">
+      <label for="nacionalidad">Nacionalidad: </label>
+      <input type="text" id="nacionalidad" formControlName = "nacionalidad" class="form-control" [ngClass]="{ 'is-invalid': profileForm.controls['nacionalidad'].touched && profileForm.controls['nacionalidad'].invalid }">
+      <div *ngIf="profileForm.controls['nacionalidad'].touched && profileForm.controls['nacionalidad'].invalid" class="invalid-feedback">
+          <div *ngIf="profileForm.controls['nacionalidad'].errors.required">Debe ingresar la nacionalidad.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="fecha_nacimiento">Fecha de Nacimiento: </label>
+      <input type="date" id="fecha_nacimiento" formControlName = "fecha_nacimiento" class="form-control" [ngClass]="{ 'is-invalid': profileForm.controls['fecha_nacimiento'].touched && profileForm.controls['fecha_nacimiento'].invalid }">
+      <div *ngIf="profileForm.controls['fecha_nacimiento'].touched && profileForm.controls['fecha_nacimiento'].invalid" class="invalid-feedback">
+          <div *ngIf="profileForm.controls['fecha_nacimiento'].errors.required">Debe ingresar la fecha.</div>
+      </div>
+    </div>    
+    <div class="form-group">
+      
+      <button  [disabled]="profileForm.controls['nombre'].invalid || profileForm.controls['apellido'].invalid || profileForm.controls['nacionalidad'].invalid || profileForm.controls['fecha_nacimiento'].invalid"
+        type="submit" class="btn btn-primary">Agregar</button>
+      <button type="reset" class="btn btn-light">Cancelar</button>
+    </div>
+  </form>
+  <div *ngIf="error" class="alert alert-danger" role="alert">{{errorMessage}} </div>

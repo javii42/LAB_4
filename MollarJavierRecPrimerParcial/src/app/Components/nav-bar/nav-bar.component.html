@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand">Parcial - Javier Mollar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/peliculas">Listar Peliculas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/peliculas/alta">Agregar Pelicula</a>
+      </li>
+      <li class="nav-item">
+        <p class="nav-link">|</p>
+      </li>      
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/actor/listado">Listar Actores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/actor/alta">Agregar Actor</a>
+      </li>
+      
+      <li></li>
+      <li class="buscar">
+        <div>
+            <input type="text" placeholder="Pelicula..." [(ngModel)] = "nombre"/>
+            <app-buscar-modelo [nombre] = "nombre"  (resultadoBuscar)="BuscarClicked($event)"></app-buscar-modelo>
+        </div>
+      </li>
+    </ul>
+  <!--   <div>
+      <app-buscar (resultadoBuscar)="BuscarClicked($event)"></app-buscar>
+    </div> -->
+  </div>
+</nav>
+<app-principal></app-principal>

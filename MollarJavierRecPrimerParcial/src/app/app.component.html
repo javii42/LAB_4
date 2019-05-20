@@ -1,0 +1,5 @@
+<app-nav-bar (resultadoBuscar)="FiltrarPorNombre($event)"></app-nav-bar>
+<div [@routeAnimations]="prepareRoute(outlet)" >
+
+    <router-outlet  #outlet="outlet"></router-outlet>
+</div>

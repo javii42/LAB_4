@@ -1,0 +1,39 @@
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nombre">Nombre: </label>
+      <input type="text" id="nombre" formControlName = "nombre" class="form-control" [ngClass]="{ 'is-invalid': profileForm.controls['nombre'].touched && profileForm.controls['nombre'].invalid }">
+      <div *ngIf="profileForm.controls['nombre'].touched && profileForm.controls['nombre'].invalid" class="invalid-feedback">
+          <div *ngIf="profileForm.controls['nombre'].errors.required">Debe ingresar el nombre.</div>
+      </div>
+    </div>    
+    <div class="form-group">
+      <label for="tipo">Tipo: </label>
+      <select id="tipo" formControlName="tipo" class="form-control">
+        <option value="amor">Amor</option>
+        <option value="comedia">Comedia</option>
+        <option value="terror">Terror</option>
+        <option value="otros">Otros</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="cant_publico">Cantidad de publico: </label>
+      <input type="number" id="cant_publico" formControlName="cant_publico" class="form-control" [ngClass]="{ 'is-invalid': profileForm.controls['cant_publico'].touched && profileForm.controls['cant_publico'].invalid }">
+      <div *ngIf="profileForm.controls['cant_publico'].touched && profileForm.controls['cant_publico'].invalid" class="invalid-feedback">
+          <div *ngIf="profileForm.controls['cant_publico'].errors.required">Debe ingresar la cantidad.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="fecha_estreno">Fecha de Estreno: </label>
+      <input type="date" id="fecha_estreno" formControlName = "fecha_estreno" class="form-control" [ngClass]="{ 'is-invalid': profileForm.controls['fecha_estreno'].touched && profileForm.controls['fecha_estreno'].invalid }">
+      <div *ngIf="profileForm.controls['fecha_estreno'].touched && profileForm.controls['fecha_estreno'].invalid" class="invalid-feedback">
+          <div *ngIf="profileForm.controls['fecha_estreno'].errors.required">Debe ingresar la fecha.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      
+      <button  [disabled]="profileForm.controls['nombre'].invalid || profileForm.controls['cant_publico'].invalid || profileForm.controls['fecha_estreno'].invalid"
+        type="submit" class="btn btn-primary">Agregar</button>
+      <button type="reset" class="btn btn-light">Cancelar</button>
+    </div>
+  </form>
+  <div *ngIf="error" class="alert alert-danger" role="alert">{{errorMessage}} </div>

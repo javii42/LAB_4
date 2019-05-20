@@ -1,0 +1,20 @@
+
+<div *ngIf="buscado" class="container-fluid">
+        <div class="row card-group">
+            <div  class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let objeto of peliculas">
+              <div class="card">
+                <img class="card-img-top img-fluid" [src]="'http://localhost/API/' + objeto.ruta_foto" alt="Pelicula">
+                <div appColor class="card-body">
+                  <h5 class="card-title">{{objeto.nombre}}</h5>
+                  <p class="card-text"><b>Tipo:</b> {{objeto.tipo}}</p>
+                  <p class="card-text"><b>Cantidad de publico:</b> {{objeto.cant_publico}}</p>
+                  <p class="card-text"><b>Fecha de estreno:</b> {{objeto.fecha_estreno}}</p>
+                  <app-boton [id] = "objeto.id" (borrado)="RefreshData()"></app-boton>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div> 
+<div *ngIf="errorBusqueda">
+  <p style="color:red;">Error, no se encontro ninguna Pelicula.</p>
+</div>
