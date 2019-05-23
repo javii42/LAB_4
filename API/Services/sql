@@ -1,0 +1,5 @@
+INSERT INTO `actores`(`nombre`, `apellido`, `nacionalidad`, `fecha_nacimiento`) VALUES
+("Robert","Downey Jr.","Americano","04/04/1965"),
+("Chris","Evans","Americano","13/06/1981"),
+("Jim","Carrey","Canadiense","17/01/1962"),
+("Leonardo","Dicaprio","Americano","11/11/1974");
