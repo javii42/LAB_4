@@ -7,6 +7,12 @@
       </div>
     </div>    
     <div class="form-group">
+      <label for="actor">Actor Estrella: </label>
+      <select id="actor" formControlName="actor" class="form-control">
+        <option value="{{actor.id}}" *ngFor="let actor of actores">{{actor.nombre}} {{actor.apellido}}</option>
+      </select>
+    </div>  
+    <div class="form-group">
       <label for="tipo">Tipo: </label>
       <select id="tipo" formControlName="tipo" class="form-control">
         <option value="amor">Amor</option>

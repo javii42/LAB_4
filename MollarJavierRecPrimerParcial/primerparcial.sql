@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-05-2019 a las 03:42:47
+-- Tiempo de generación: 23-05-2019 a las 06:57:19
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 5.6.37
 
@@ -44,7 +44,8 @@ INSERT INTO `actores` (`id`, `nombre`, `apellido`, `nacionalidad`, `fecha_nacimi
 (1, 'Robert', 'Downey Jr.', 'Americano', '04/04/1965'),
 (2, 'Chris', 'Evans', 'Americano', '13/06/1981'),
 (3, 'Jim', 'Carrey', 'Canadiense', '17/01/1962'),
-(4, 'Leonardo', 'Dicaprio', 'Americano', '11/11/1974');
+(4, 'Leonardo', 'Dicaprio', 'Americano', '11/11/1974'),
+(7, 'Javier', 'Mollar', 'Argentina', '1991-10-30');
 
 -- --------------------------------------------------------
 
@@ -69,7 +70,31 @@ INSERT INTO `peliculas` (`id`, `nombre`, `tipo`, `fecha_estreno`, `cant_publico`
 (1, 'Avengers', 'Otros', '26/05/2010', 250000000, 'Imagenes/avengers.jpg'),
 (2, 'Titanic', 'amor', '07/07/1997', 300000000, 'Imagenes/titanic.jpg'),
 (3, 'Memento', 'Otros', '07/02/2002', 2000000, 'Imagenes/memento.jpg'),
-(4, 'John Wick', 'Otros', '08/01/2015', 1500000, 'Imagenes/johnWick.jpg');
+(4, 'John Wick', 'Otros', '08/01/2015', 1500000, 'Imagenes/johnWick.jpg'),
+(19, 'seeee', 'amor', '1999-10-10', 16, 'Imagenes/default.png'),
+(20, 'sarasa', 'amor', '1999-10-10', 10, 'Imagenes/default.png'),
+(21, 'Javier', 'otros', '1999-10-10', 12, 'Imagenes/default.png');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pelicula_actor`
+--
+
+CREATE TABLE `pelicula_actor` (
+  `id_pelicula` int(11) NOT NULL,
+  `id_actor` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `pelicula_actor`
+--
+
+INSERT INTO `pelicula_actor` (`id_pelicula`, `id_actor`) VALUES
+(1, 1),
+(1, 2),
+(3, 4),
+(21, 7);
 
 --
 -- Índices para tablas volcadas
@@ -88,6 +113,13 @@ ALTER TABLE `peliculas`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `pelicula_actor`
+--
+ALTER TABLE `pelicula_actor`
+  ADD PRIMARY KEY (`id_pelicula`,`id_actor`),
+  ADD KEY `id_actor` (`id_actor`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -95,13 +127,24 @@ ALTER TABLE `peliculas`
 -- AUTO_INCREMENT de la tabla `actores`
 --
 ALTER TABLE `actores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `peliculas`
 --
 ALTER TABLE `peliculas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `pelicula_actor`
+--
+ALTER TABLE `pelicula_actor`
+  ADD CONSTRAINT `pelicula_actor_ibfk_1` FOREIGN KEY (`id_pelicula`) REFERENCES `peliculas` (`id`),
+  ADD CONSTRAINT `pelicula_actor_ibfk_2` FOREIGN KEY (`id_actor`) REFERENCES `actores` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

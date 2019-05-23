@@ -18,6 +18,7 @@ import { AltaActorComponent } from './Components/alta-actor/alta-actor.component
 import { ListaActorComponent } from './Components/lista-actor/lista-actor.component';
 import { BusquedaComponent } from './Components/busqueda/busqueda.component';
 import { BotonClienteComponent } from './Components/boton-cliente/boton-cliente.component';
+import { ListaRelacionComponent } from './Components/lista-relacion/lista-relacion.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { BotonClienteComponent } from './Components/boton-cliente/boton-cliente.
     ListaActorComponent,
     BusquedaComponent,
     BotonClienteComponent,
+    ListaRelacionComponent,
   ],
   imports: [
     BrowserModule,

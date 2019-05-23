@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="row card-group">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let objeto of relaciones">
+
+        <div class="card">
+          <img class="card-img-top img-fluid" [src]="'http://localhost/API/' + objeto.ruta_foto" alt="Pelicula">
+          <div appColor class="card-body">
+            <h5 class="card-title">{{objeto.nombre}} {{objeto.apellido}}</h5>
+            <p class="card-text"><b>Pelicula:</b> {{objeto.pelicula}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

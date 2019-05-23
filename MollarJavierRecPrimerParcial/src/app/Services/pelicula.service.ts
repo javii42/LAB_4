@@ -15,6 +15,9 @@ export class PeliculaService {
   public Listar(): Observable<Pelicula[]> {
     return this.http.httpGetO('Peliculas/listar');
   }
+  public ListarID(): Observable<Pelicula[]> {
+    return this.http.httpGetO('Peliculas/listarID');
+  }
 
   public Agregar(object : JSON){
     return this.http.httpPostP('Peliculas/registrar',object);

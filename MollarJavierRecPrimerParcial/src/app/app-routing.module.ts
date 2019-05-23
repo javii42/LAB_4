@@ -7,13 +7,15 @@ import{AltaComponent} from './Components/alta/alta.component';
 import{AltaActorComponent} from './Components/alta-actor/alta-actor.component';
 import{ListaActorComponent} from './Components/lista-actor/lista-actor.component';
 import {BusquedaComponent} from './Components/busqueda/busqueda.component';
+import{ListaRelacionComponent} from './Components/lista-relacion/lista-relacion.component';
 
 const routes: Routes = [
   	{path: 'peliculas', component: ListaComponent, data: {animation: 'Lista'}},
 	{path: 'peliculas/alta', component: AltaComponent},
   	{path: 'actor/alta', component: AltaActorComponent, data: {animation: 'Lista'}},
   	{path: 'actor/listado', component: ListaActorComponent, data: {animation: 'Lista'}},
-  	{path: 'busqueda', component: BusquedaComponent}
+  	{path: 'busqueda', component: BusquedaComponent},
+  	{path: 'listadoRelacion', component:ListaRelacionComponent}
 ];
 
 @NgModule({
