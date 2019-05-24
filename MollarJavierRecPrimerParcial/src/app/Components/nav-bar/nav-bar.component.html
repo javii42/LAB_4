@@ -22,8 +22,11 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/actor/alta">Agregar Actor</a>
       </li>
-      <li class="nav-item">
+     <li class="nav-item">
         <a class="nav-link" routerLink="/listadoRelacion">Estrellas</a>
+      </li>
+     <li class="nav-item">
+        <a class="nav-link" (click) = "LogOut()">LogOut</a>
       </li>
       
       <li></li>
@@ -32,6 +35,9 @@
             <input type="text" placeholder="Pelicula..." [(ngModel)] = "nombre"/>
             <app-buscar-modelo [nombre] = "nombre"  (resultadoBuscar)="BuscarClicked($event)"></app-buscar-modelo>
         </div>
+      </li>
+     <li class="nav-item">
+        <a class="nav-link" routerLink="/registrar">Registrarse</a>
       </li>
     </ul>
   <!--   <div>

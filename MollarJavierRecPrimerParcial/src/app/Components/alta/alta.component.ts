@@ -6,6 +6,8 @@ import {ActorService} from '../../Services/actor.service';
 import {RelacionService} from '../../Services/relacion.service';
 import{Actor} from '../../Entities/actor';
 import{RelacionClaves} from '../../Entities/relacion-claves';
+import{LoginService} from '../../Services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-alta',
@@ -18,7 +20,8 @@ export class AltaComponent implements OnInit {
   public error : boolean;
   public errorMessage : string;
   private actores:Array<Actor>;
-
+  private token;
+  private user;
   public profileForm= new FormGroup({
     nombre : new FormControl(''),
     tipo : new FormControl(''),
@@ -30,7 +33,9 @@ export class AltaComponent implements OnInit {
   constructor(private PeliculaService : PeliculaService,
     private RelacionService: RelacionService,
     private formBuilder : FormBuilder,
-    private ActorService:ActorService) {
+    private ActorService:ActorService,
+    private LoginService:LoginService,
+    private router: Router) {
     this.ActorService.Listar().subscribe(lista => {
       this.actores = lista;
     }) 
@@ -38,6 +43,21 @@ export class AltaComponent implements OnInit {
 
     this.agregadoNuevo = new EventEmitter<{}>();
     this.resultadoBuscar = new EventEmitter<Pelicula[]>();
+    this.token = '[{"token": "'+console.log(localStorage.getItem("token"))+'"}]';
+    console.log(JSON.parse(this.token));
+    this.LoginService.Verificar(JSON.parse(this.token)).then(data =>{
+      this.user = data;
+    },err =>{
+      console.log("e");
+    });
+    this.user = JSON.parse(localStorage.getItem("user"));
+    console.log(this.user);
+    console.log(this.user[0].perfil);
+    if(this.user[0].perfil != "admin"){
+      router.navigate(["/"]);
+    }
+
+
   }
 
   ngOnInit() {

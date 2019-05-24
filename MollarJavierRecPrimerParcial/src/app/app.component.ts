@@ -17,9 +17,16 @@ import { slideInAnimation } from './route-animation';
 export class AppComponent {
   title = 'PracticaPrimerParcial';
   @Output() resultadoBuscar : EventEmitter<Pelicula[]>
-
+  private token;
   constructor(private router: Router, private route: ActivatedRoute,
     private DataService:DataService){
+     this.token = localStorage.getItem("token");
+     console.log(this.token);
+     if(this.token != "null"){
+
+     }else{
+       router.navigate(["/login"]);
+     }
   }
   public FiltrarPorNombre(value: Pelicula[]){
          var params = JSON.stringify(value);

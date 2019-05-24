@@ -34,7 +34,7 @@ CREATE TABLE `actores` (
   `apellido` varchar(25) COLLATE utf8mb4_spanish_ci NOT NULL,
   `nacionalidad` varchar(25) COLLATE utf8mb4_spanish_ci NOT NULL,
   `fecha_nacimiento` varchar(15) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '01/03/1990'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+);
 
 --
 -- Volcado de datos para la tabla `actores`
@@ -44,8 +44,7 @@ INSERT INTO `actores` (`id`, `nombre`, `apellido`, `nacionalidad`, `fecha_nacimi
 (1, 'Robert', 'Downey Jr.', 'Americano', '04/04/1965'),
 (2, 'Chris', 'Evans', 'Americano', '13/06/1981'),
 (3, 'Jim', 'Carrey', 'Canadiense', '17/01/1962'),
-(4, 'Leonardo', 'Dicaprio', 'Americano', '11/11/1974'),
-(7, 'Javier', 'Mollar', 'Argentina', '1991-10-30');
+(4, 'Leonardo', 'Dicaprio', 'Americano', '11/11/1974');
 
 -- --------------------------------------------------------
 
@@ -60,7 +59,7 @@ CREATE TABLE `peliculas` (
   `fecha_estreno` varchar(15) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT '01/03/2000',
   `cant_publico` int(11) NOT NULL,
   `ruta_foto` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT 'Imagenes/default.png'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+);
 
 --
 -- Volcado de datos para la tabla `peliculas`
@@ -70,10 +69,7 @@ INSERT INTO `peliculas` (`id`, `nombre`, `tipo`, `fecha_estreno`, `cant_publico`
 (1, 'Avengers', 'Otros', '26/05/2010', 250000000, 'Imagenes/avengers.jpg'),
 (2, 'Titanic', 'amor', '07/07/1997', 300000000, 'Imagenes/titanic.jpg'),
 (3, 'Memento', 'Otros', '07/02/2002', 2000000, 'Imagenes/memento.jpg'),
-(4, 'John Wick', 'Otros', '08/01/2015', 1500000, 'Imagenes/johnWick.jpg'),
-(19, 'seeee', 'amor', '1999-10-10', 16, 'Imagenes/default.png'),
-(20, 'sarasa', 'amor', '1999-10-10', 10, 'Imagenes/default.png'),
-(21, 'Javier', 'otros', '1999-10-10', 12, 'Imagenes/default.png');
+(4, 'John Wick', 'Otros', '08/01/2015', 1500000, 'Imagenes/johnWick.jpg');
 
 -- --------------------------------------------------------
 
@@ -84,7 +80,7 @@ INSERT INTO `peliculas` (`id`, `nombre`, `tipo`, `fecha_estreno`, `cant_publico`
 CREATE TABLE `pelicula_actor` (
   `id_pelicula` int(11) NOT NULL,
   `id_actor` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+);
 
 --
 -- Volcado de datos para la tabla `pelicula_actor`
@@ -93,8 +89,7 @@ CREATE TABLE `pelicula_actor` (
 INSERT INTO `pelicula_actor` (`id_pelicula`, `id_actor`) VALUES
 (1, 1),
 (1, 2),
-(3, 4),
-(21, 7);
+(3, 4);
 
 --
 -- Índices para tablas volcadas

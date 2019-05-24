@@ -19,6 +19,8 @@ import { ListaActorComponent } from './Components/lista-actor/lista-actor.compon
 import { BusquedaComponent } from './Components/busqueda/busqueda.component';
 import { BotonClienteComponent } from './Components/boton-cliente/boton-cliente.component';
 import { ListaRelacionComponent } from './Components/lista-relacion/lista-relacion.component';
+import { UsuarioComponent } from './Components/usuario/usuario.component';
+import { LoginComponent } from './Components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { ListaRelacionComponent } from './Components/lista-relacion/lista-relaci
     BusquedaComponent,
     BotonClienteComponent,
     ListaRelacionComponent,
+    UsuarioComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

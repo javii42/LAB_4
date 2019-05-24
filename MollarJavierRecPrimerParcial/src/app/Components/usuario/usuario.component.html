@@ -1,0 +1,40 @@
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="nombre">Nombre: </label>
+      <input type="text" id="nombre" formControlName = "nombre" class="form-control" [ngClass]="{ 'is-invalid': profileForm.controls['nombre'].touched && profileForm.controls['nombre'].invalid }">
+      <div *ngIf="profileForm.controls['nombre'].touched && profileForm.controls['nombre'].invalid" class="invalid-feedback">
+          <div *ngIf="profileForm.controls['nombre'].errors.required">Debe ingresar el nombre.</div>
+      </div>
+    </div>    
+
+    <div class="form-group">
+      <label for="mail">Mail: </label>
+      <input type="text" id="mail" formControlName = "mail" class="form-control" [ngClass]="{ 'is-invalid': profileForm.controls['mail'].touched && profileForm.controls['mail'].invalid }">
+      <div *ngIf="profileForm.controls['mail'].touched && profileForm.controls['mail'].invalid" class="invalid-feedback">
+          <div *ngIf="profileForm.controls['mail'].errors.required">Debe ingresar el mail.</div>
+      </div>
+    </div>     
+
+    <div class="form-group">
+      <label for="clave">Clave: </label>
+      <input type="password" id="clave" formControlName = "clave" class="form-control" [ngClass]="{ 'is-invalid': profileForm.controls['clave'].touched && profileForm.controls['clave'].invalid }">
+      <div *ngIf="profileForm.controls['clave'].touched && profileForm.controls['clave'].invalid" class="invalid-feedback">
+          <div *ngIf="profileForm.controls['clave'].errors.required">Debe ingresar la contraseña.</div>
+      </div>
+    </div>   
+    <div class="form-group">
+      <label for="perfil">Perfil: </label>
+      <select id="perfil" formControlName="perfil" class="form-control">
+        <option value="admin">Admin</option>
+        <option value="visita">Visita</option>
+      </select>
+    </div>
+      
+    <div class="form-group">
+      <button  [disabled]="profileForm.controls['nombre'].invalid || profileForm.controls['mail'].invalid || profileForm.controls['clave'].invalid"
+        type="submit" class="btn btn-primary">Agregar</button>
+      <button type="reset" class="btn btn-light">Cancelar</button>
+    </div>
+  </form>
+  <div *ngIf="error" class="alert alert-danger" role="alert">{{errorMessage}} </div>
