@@ -1,0 +1,10 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="contenedor col-3">
+      <app-registro-cliente (registradoCorrectamente)="cargarLista()"></app-registro-cliente>
+    </div>
+    <div class="contenedor col-8">
+      <app-lista-cliente [listaZapatos]="listaZapatos"></app-lista-cliente>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<table appPanel class="table table-sm table-hover table-light table-striped">
+  <thead>
+    <tr>
+      <th class="text-center" colspan="7"><b>Lista de Materias</b></th>
+    </tr>
+    <tr>
+      <th>Nombre</th>
+      <th>Cuatrimestre</th>
+      <th>Cupos</th>
+      <th>Profesor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let Zapato of listaZapatos">
+      <td>{{Zapato.nombre}}</td>
+      <td>{{Zapato.cuatrimestre}}</td>
+      <td>{{Zapato.cupos}}</td>
+      <td>{{Zapato.nombreProfesor}}</td>
+    </tr>
+  </tbody>
+</table>

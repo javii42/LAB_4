@@ -40,6 +40,12 @@ class PeliculaApi extends Pelicula{
         return $newResponse;
     }
 
+    public function SeleccionarUltimoID($request, $response, $args){
+        $respuesta = Pelicula::ListarUltimoID();
+        $newResponse = $response->withJson($respuesta, 200);
+        return $newResponse;
+
+    }
     ///Baja
     public function BajaPelicula($request, $response, $args)
     {

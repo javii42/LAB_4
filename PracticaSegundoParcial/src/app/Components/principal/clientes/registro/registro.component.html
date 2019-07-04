@@ -1,0 +1,53 @@
+<div appPanel>
+  <h4>Alta</h4>
+  <hr>
+  <form [formGroup]="form" (keyup.enter)="Submit()">
+    <div class="form-group">
+      <label for="nombre">Nombre: </label>
+      <input type="text" id="nombre" formControlName="nombre" class="form-control" [ngClass]="{ 'is-invalid': form.controls['nombre'].touched && form.controls['nombre'].invalid }">
+      <div *ngIf="form.controls['nombre'].touched && form.controls['nombre'].invalid" class="invalid-feedback">
+        <div *ngIf="form.controls['nombre'].errors.required">Debe ingresar un Nombre.</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <div class="form-group">
+          <label for="cuatrimestre">Cuatrimestre: </label>
+          <input type="text" id="cuatrimestre" formControlName="cuatrimestre" class="form-control" [ngClass]="{ 'is-invalid': form.controls['cuatrimestre'].touched && form.controls['cuatrimestre'].invalid }">
+          <div *ngIf="form.controls['cuatrimestre'].touched && form.controls['cuatrimestre'].invalid" class="invalid-feedback">
+            <div *ngIf="form.controls['cuatrimestre'].errors.required">Debe ingresar un cuatrimestre.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="profesor">Profesor: </label>
+          <select id="profesor" formControlName="profesor" class="form-control">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="2">3</option>
+            <option value="2">4</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <div class="form-group">
+          <label for="cupos">Cupos: </label>
+          <input type="text" id="cupos" class="form-control" min="0" formControlName="cupos" [ngClass]="{ 'is-invalid': form.controls['cupos'].touched && form.controls['cupos'].invalid }">
+          <div *ngIf="form.controls['cupos'].touched && form.controls['cupos'].invalid" class="invalid-feedback">
+            <div *ngIf="form.controls['cupos'].errors.required">Debe ingresar el cupo.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <ngx-recaptcha2 #captchaElem [siteKey]="key" [size]="'normal'" [hl]="'es'" [theme]="'light'" [type]="'image'" formControlName="recaptcha">
+    </ngx-recaptcha2>     -->
+    <small *ngIf="error" class="text-danger font-weight-bold"><i class="fa fa-times"></i> {{errorMessage}} </small>
+    <small *ngIf="success" class="text-success font-weight-bold"><i class="fas fa-check"></i> Servicio registrado
+      correctamente. </small>
+    <hr>
+    <button type="submit" class="btn btn-primary" (click)="Submit()">Registrar</button><br>
+  </form>
+</div>

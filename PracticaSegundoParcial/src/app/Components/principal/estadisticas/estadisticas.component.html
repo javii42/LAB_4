@@ -1,0 +1,63 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="contenedor col-10" appPanel>
+      <form [formGroup]="form">
+        <div class="form-row">
+          <div class="col">
+            <div class="form-group">
+              <label for="local">Local: </label>
+              <select id="local" formControlName="local" class="form-control">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="Todos">Todos</option>
+                </select>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="repetidos">Repetidos: </label>
+              <select id="repetidos" formControlName="repetidos" class="form-control">
+                  <option value="Repetidos">Repetidos</option>
+                  <option value="NoRepetidos">No Repetidos</option>
+                  <option value="Todos">Todos</option>
+                </select>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="contenedor col-10">
+      <table appPanel class="table table-sm table-hover table-light table-striped">
+        <thead>
+          <tr>
+            <th class="text-center" colspan="8"><b>Lista de Zapatos</b></th>
+          </tr>
+          <tr>
+            <th>ID</th>
+            <th>Codigo</th>
+            <th>Nombre</th>
+            <th>Fecha de Ingreso</th>
+            <th>Local</th>
+            <th>Precio</th>
+            <th>Precio con Aumento</th>
+            <th>Genero</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let Zapato of listaZapatos" [appSexo]="Zapato.genero">
+            <td>{{Zapato.id}}</td>
+            <td>{{Zapato.codigo}}</td>
+            <td>{{Zapato.nombre}}</td>
+            <td>{{Zapato.fechaIngreso}}</td>
+            <td>{{Zapato.local}}</td>
+            <td>{{Zapato.precio}}</td>
+            <td>{{Zapato.precio | aumento}}</td>
+            <td>{{Zapato.genero}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

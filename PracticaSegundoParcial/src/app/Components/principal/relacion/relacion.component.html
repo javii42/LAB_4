@@ -1,0 +1,52 @@
+<div appPanel>
+  <h4>Alta</h4>
+  <hr>
+  <form [formGroup]="form" (keyup.enter)="Submit()">
+    <div class="form-group">
+      <label for="alumno">Alumno: </label>
+      <input type="text" id="alumno" formControlName="alumno" class="form-control" [ngClass]="{ 'is-invalid': form.controls['alumno'].touched && form.controls['alumno'].invalid }">
+      <div *ngIf="form.controls['alumno'].touched && form.controls['alumno'].invalid" class="invalid-feedback">
+        <div *ngIf="form.controls['alumno'].errors.required">Debe ingresar un Alumno.</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <div class="form-group">
+          <label for="materia">Materia: </label>
+          <input type="text" id="materia" formControlName="materia" class="form-control" [ngClass]="{ 'is-invalid': form.controls['materia'].touched && form.controls['materia'].invalid }">
+          <div *ngIf="form.controls['materia'].touched && form.controls['materia'].invalid" class="invalid-feedback">
+            <div *ngIf="form.controls['materia'].errors.required">Debe ingresar un cuatrimestre.</div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <!-- <ngx-recaptcha2 #captchaElem [siteKey]="key" [size]="'normal'" [hl]="'es'" [theme]="'light'" [type]="'image'" formControlName="recaptcha">
+    </ngx-recaptcha2>     -->
+    <small *ngIf="error" class="text-danger font-weight-bold"><i class="fa fa-times"></i> {{errorMessage}} </small>
+    <small *ngIf="success" class="text-success font-weight-bold"><i class="fas fa-check"></i> Servicio registrado
+      correctamente. </small>
+    <hr>
+    <button type="submit" class="btn btn-primary" (click)="Submit()">Registrar</button><br>
+  </form>
+</div>
+
+<table appPanel class="table table-sm table-hover table-light table-striped">
+  <thead>
+    <tr>
+      <th class="text-center" colspan="7"><b>Lista de Materias</b></th>
+    </tr>
+    <tr>
+      <th>Alumno</th>
+      <th>Materia</th>
+      <th>Cupo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let Materia of listaMateria" [appSexo]="Materia.cupo">
+      <td>{{Materia.nombreAlumno}}</td>
+      <td>{{Materia.nombreMateria}}</td>
+      <td>{{Materia.cupo}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,64 @@
+<div class="container h-100">
+  <div class="row">
+    <div class="col-12">
+      <h1>Juan Manuel Figueiras - Segundo Parcial</h1>
+      <hr class="hrt">
+    </div>
+  </div>
+  <div class="row rowLogin justify-content-center align-items-center h-75 rounded shadow">
+    <div class="col-5">
+      <div class="card" [ngClass]="{'border-danger': error}">
+        <div class="card-body">
+          <h5 class="card-title">Ingreso</h5>
+          <hr>
+          <form [formGroup]="form" (keyup.enter)="Submit()">
+            <div class="form-row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="mail">Mail: </label>
+                  <input type="text" id="mail" formControlName="mail" class="form-control" [ngClass]="{ 'is-invalid': form.controls['mail'].touched && form.controls['mail'].invalid }">
+                  <div *ngIf="form.controls['mail'].touched && form.controls['mail'].invalid" class="invalid-feedback">
+                    <div *ngIf="form.controls['mail'].errors.required">Debe ingresar un mail.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="clave">Clave: </label>
+                  <input type="clave" id="clave" class="form-control" formControlName="clave" [ngClass]="{ 'is-invalid': form.controls['clave'].touched && form.controls['clave'].invalid }">
+                  <div *ngIf="form.controls['clave'].touched && form.controls['clave'].invalid" class="invalid-feedback">
+                    <div *ngIf="form.controls['clave'].errors.required">Debe ingresar la clave.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="tipo">Tipo: </label>
+                  <select id="tipo" formControlName="tipo" class="form-control">
+                    <option value="Cliente">Cliente</option>
+                    <option value="Administrador">Administrador</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </form>
+          <span><i class="fas fa-fast-forward"></i><b class="ar">Acceso Rápido:</b></span> <br>
+          <button type="button" class="btn btn-outline-danger btn-sm buttonDefault" data-toggle="tooltip"
+            data-placement="top" title="Administrador" (click)="CargarDefault('A')"><i class="fas fa-user-tie"></i>
+            Administrador</button>
+          <button type="button" class="btn btn-outline-success btn-sm buttonDefault" data-toggle="tooltip"
+            data-placement="top" title="Cliente" (click)="CargarDefault('C')"><i class="fas fa-user-tag"></i> Cliente</button>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-warning" (click)="Submit()">Ingresar</button>
+            <!--<button type="button" class="btn btn-secondary" [routerLink]="[ '/' ]">Volver</button>-->
+          </div>
+        </div>
+        <div *ngIf="error" class="card-footer">
+          <small class="text-danger font-weight-bold"><i class="fa fa-times"></i> {{errorMessage}} </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="container h-100">
+  <div class="row">
+    <div class="col-12">
+      <div class="contenedor col-3" *ngIf="reg">
+        <app-registro-usuario></app-registro-usuario>
+      </div>      
+    </div>
+  </div>
+  <div class="row rowLogin justify-content-center align-items-center h-75 rounded shadow">
+    <div class="col-5">
+      <div class="card" [ngClass]="{'border-danger': error}">
+        <div class="card-body">
+          <h5 class="card-title">Ingreso</h5>
+          <hr>
+          <form [formGroup]="form" (keyup.enter)="Submit()">
+            <div class="form-row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="user">Mail: </label>
+                  <input type="text" id="user" formControlName="user" class="form-control" [ngClass]="{ 'is-invalid': form.controls['user'].touched && form.controls['user'].invalid }">
+                  <div *ngIf="form.controls['user'].touched && form.controls['user'].invalid" class="invalid-feedback">
+                    <div *ngIf="form.controls['user'].errors.required">Debe ingresar un mail.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="name">Nombre: </label>
+                  <input type="text" id="name" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': form.controls['name'].touched && form.controls['name'].invalid }">
+                  <div *ngIf="form.controls['name'].touched && form.controls['name'].invalid" class="invalid-feedback">
+                    <div *ngIf="form.controls['name'].errors.required">Debe ingresar un nombre.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="pass">Contraseña: </label>
+                  <input type="password" id="pass" class="form-control" formControlName="pass" [ngClass]="{ 'is-invalid': form.controls['pass'].touched && form.controls['pass'].invalid }">
+                  <div *ngIf="form.controls['pass'].touched && form.controls['pass'].invalid" class="invalid-feedback">
+                    <div *ngIf="form.controls['pass'].errors.required">Debe ingresar la contraseña.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="perfil">Perfil: </label>
+                  <select id="perfil" formControlName="perfil" class="form-control"
+                    (change)="CargarDefault($event.target.value)">
+                    <option value="Cliente">Cliente</option>
+                    <option value="Profesor">Profesor</option>
+                    <option value="Administrador">Administrador</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </form>
+         
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-dark" (click)="Submit()">Ingresar</button>
+            <button type="submit" class="btn btn-dark" (click)="registrar()">Registrar</button>
+            <!--<button type="button" class="btn btn-secondary" [routerLink]="[ '/' ]">Volver</button>-->
+          </div>
+        </div>
+        <div *ngIf="error" class="card-footer">
+          <small class="text-danger font-weight-bold"><i class="fa fa-times"></i> {{errorMessage}} </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

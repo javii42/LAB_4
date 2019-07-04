@@ -1,0 +1,61 @@
+<div appPanel>
+  <h4>Alta</h4>
+  <hr>
+  <form [formGroup]="form" (keyup.enter)="Submit()">
+    <div class="form-row">      
+      <div class="col">  
+        <div class="form-group">
+          <label for="mail">Mail: </label>
+          <input type="Mail" id="mail" formControlName="mail" class="form-control" [ngClass]="{ 'is-invalid': form.controls['mail'].touched && form.controls['mail'].invalid }">
+          <div *ngIf="form.controls['mail'].touched && form.controls['mail'].invalid" class="invalid-feedback">
+            <div *ngIf="form.controls['mail'].errors.required">Debe ingresar un mail.</div>
+          </div>
+        </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="clave">Clave: </label>
+              <input type="password" id="clave" formControlName="clave" class="form-control" [ngClass]="{ 'is-invalid': form.controls['clave'].touched && form.controls['clave'].invalid }">
+              <div *ngIf="form.controls['clave'].touched && form.controls['clave'].invalid" class="invalid-feedback">
+                <div *ngIf="form.controls['clave'].errors.required">Debe ingresar una contraseña.</div>
+              </div>
+            </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <div class="form-group">
+          <label for="nombre">Nombre: </label>
+          <input type="text" id="nombre" class="form-control" min="0" formControlName="nombre" [ngClass]="{ 'is-invalid': form.controls['nombre'].touched && form.controls['nombre'].invalid }">
+          <div *ngIf="form.controls['nombre'].touched && form.controls['nombre'].invalid" class="invalid-feedback">
+            <div *ngIf="form.controls['nombre'].errors.required">Debe ingresar el nombre.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="sexo">Sexo: </label>
+          <select id="sexo" formControlName="sexo" class="form-control">
+            <option value="M">Hombre</option>
+            <option value="F">Mujer</option>
+          </select>
+        </div>
+      </div>
+    </div>
+        <div class="form-group">
+          <label for="perfil">Perfil: </label>
+          <select id="perfil" formControlName="perfil" class="form-control">
+            <option value="Administrador">Administrador</option>
+            <option value="Profesor">Profesor</option>
+            <option value="Cliente">Cliente</option>
+          </select>
+        </div>
+    <!-- <ngx-recaptcha2 #captchaElem [siteKey]="key" [size]="'normal'" [hl]="'es'" [theme]="'light'" [type]="'image'" formControlName="recaptcha">
+    </ngx-recaptcha2>     -->
+    <small *ngIf="error" class="text-danger font-weight-bold"><i class="fa fa-times"></i> {{errorMessage}} </small>
+    <small *ngIf="success" class="text-success font-weight-bold"><i class="fas fa-check"></i> Servicio registrado
+      correctamente. </small>
+    <hr>
+    <button type="submit" class="btn btn-primary" (click)="Submit()">Registrar</button><br>
+  </form>
+</div>

@@ -114,4 +114,24 @@ class Pelicula{
             return $respuesta;
         }
     }
+
+
+    public static function ListarUltimoID()
+    {
+        try {
+            $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso('PrimerParcial');
+
+            $consulta = $objetoAccesoDato->RetornarConsulta("SELECT MAX(id) as id FROM Peliculas");
+
+            $consulta->execute();
+
+            $respuesta = $consulta->fetchAll(PDO::FETCH_CLASS, "Pelicula");
+        } catch (Exception $e) {
+            $mensaje = $e->getMessage();
+            $respuesta = array("Estado" => "ERROR", "Mensaje" => "$mensaje");
+        }
+        finally {
+            return $respuesta;
+        }
+    }
 }

@@ -1,0 +1,22 @@
+<table appPanel class="table table-sm table-hover table-light table-striped">
+  <thead>
+    <tr>
+      <th class="text-center" colspan="7"><b>Lista de turnos</b></th>
+    </tr>
+    <tr>
+      <th>DNI</th>
+      <th>fecha</th>
+      <th>hora</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let turno of turnos">
+      <td>{{turno.data.dni}}</td>
+      <td>{{turno.data.fecha}}</td>
+      <td>{{turno.data.hora}}</td>
+      <td><button class="btn btn-danger" 
+      	(click) = "atender(turno.id, turno.data.dni,turno.data.fecha,turno.data.hora)">
+      Atender</button>
+    </tr>
+  </tbody>
+</table>

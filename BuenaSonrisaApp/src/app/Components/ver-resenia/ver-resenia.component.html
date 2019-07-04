@@ -1,0 +1,19 @@
+	<table appPanel class="table table-sm table-hover table-light table-striped">
+  <thead>
+    <tr>
+      <th class="text-center" colspan="7"><b>Lista de reseñas</b></th>
+    </tr>
+    <tr>
+      <th>DNI</th>
+      <th>Fecha</th>
+      <th>Comentario</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let turno of turnos">
+      <td>{{turno.data.dni}}</td>
+      <td>{{turno.data.fecha}}</td>
+      <td>{{turno.data.comment}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,85 @@
+<div class="container h-100">
+  <div class="row">
+    <div class="col-12">
+      <div class="contenedor col-6">
+			<h4>Encuesta</h4>
+		  <hr>
+		  <form [formGroup]="form" (keyup.enter)="Submit()">
+		    <div class="form-group">
+		      <label for="recepcion">Atención en la recepción: </label>
+		      <input type="range" list="tickmarks" id="recepcion" formControlName="recepcion" class="form-control">
+				<datalist id="tickmarks" style="color:white">
+				  <option value="0" label="0%">
+				  <option value="10">
+				  <option value="20">
+				  <option value="30">
+				  <option value="40">
+				  <option value="50" label="50%">
+				  <option value="60">
+				  <option value="70">
+				  <option value="80">
+				  <option value="90">
+				  <option value="100" label="100%">
+				</datalist>
+		    </div>
+	        <div class="form-group">
+	          <label for="especialista">Atencón del especialista: </label>
+		      <input type="range" list="tickmarks" id="especialista" formControlName="especialista" class="form-control">
+				<datalist id="tickmarks">
+				  <option value="0" label="0%">
+				  <option value="10">
+				  <option value="20">
+				  <option value="30">
+				  <option value="40">
+				  <option value="50" label="50%">
+				  <option value="60">
+				  <option value="70">
+				  <option value="80">
+				  <option value="90">
+				  <option value="100" label="100%">
+				</datalist>
+	        </div>
+		    <div class="form-row">
+		      <div class="col">
+		        <div class="form-group">
+		          <label for="instalaciones">Condiciones de las instalaciónes: </label>
+		      <input type="range" list="tickmarks" id="instalaciones" formControlName="instalaciones" class="form-control">
+				<datalist id="tickmarks">
+				  <option value="0" label="0%">
+				  <option value="10">
+				  <option value="20">
+				  <option value="30">
+				  <option value="40">
+				  <option value="50" label="50%">
+				  <option value="60">
+				  <option value="70">
+				  <option value="80">
+				  <option value="90">
+				  <option value="100" label="100%">
+				</datalist>
+		         
+		        </div>
+		      </div>
+		    </div>
+		    <div class="form-row">
+		      <div class="col">
+		          <label for="comment">Comentarios: </label>
+		          <input type="text" id="comment" formControlName="comment" class="form-control" [ngClass]="{ 'is-invalid': form.controls['comment'].touched && form.controls['comment'].invalid }">
+		          <div *ngIf="form.controls['comment'].touched && form.controls['comment'].invalid" class="invalid-feedback">
+		            <div *ngIf="form.controls['comment'].errors.required">Debe ingresar un Comentario.</div>
+		          </div>
+		      </div>
+		    </div>
+		    <!-- <ngx-recaptcha2 #captchaElem [siteKey]="key" [size]="'normal'" [hl]="'es'" [theme]="'light'" [type]="'image'" formControlName="recaptcha">
+		    </ngx-recaptcha2>     -->
+		    <small *ngIf="error" class="text-danger font-weight-bold"><i class="fa fa-times"></i> {{errorMessage}} </small>
+		    <small *ngIf="success" class="text-success font-weight-bold"><i class="fas fa-check"></i> Encuesta enviada correctamente. </small>
+		    <hr>
+		    <button type="submit" class="btn btn-primary" (click)="Submit()">Enviar</button><br>
+		  </form>
+      </div>      
+    </div>
+  </div>
+</div>
+
+

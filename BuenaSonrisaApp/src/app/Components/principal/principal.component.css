@@ -1,0 +1,11 @@
+.container{
+	background: url("/../../assets/consultorio-odontologico.jpg");
+	opacity: 20%;
+  border: 1px solid white;
+  background-color: #cccccc; /* Used if the image is unavailable */
+  width: 100%;
+  height: auto; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}

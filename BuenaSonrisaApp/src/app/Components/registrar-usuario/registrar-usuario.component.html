@@ -1,0 +1,80 @@
+<div class="container h-100">
+  <div class="row">
+    <div class="col-12">
+      <div class="contenedor col-6">
+			<h4>Alta</h4>
+		  <hr>
+		  <form [formGroup]="form" (keyup.enter)="Submit()">
+		    <div class="form-group">
+		      <label for="nombre">Nombre: </label>
+		      <input type="text" id="nombre" formControlName="nombre" class="form-control" [ngClass]="{ 'is-invalid': form.controls['nombre'].touched && form.controls['nombre'].invalid }">
+		      <div *ngIf="form.controls['nombre'].touched && form.controls['nombre'].invalid" class="invalid-feedback">
+		        <div *ngIf="form.controls['nombre'].errors.required">Debe ingresar un Nombre.</div>
+		      </div>
+		    </div>
+	        <div class="form-group">
+	          <label for="apellido">Apellido: </label>
+	          <input type="text" id="apellido" formControlName="apellido" class="form-control" [ngClass]="{ 'is-invalid': form.controls['apellido'].touched && form.controls['apellido'].invalid }">
+	          <div *ngIf="form.controls['apellido'].touched && form.controls['apellido'].invalid" class="invalid-feedback">
+	            <div *ngIf="form.controls['apellido'].errors.required">Debe ingresar un Apellido.</div>
+	          </div>
+	        </div>
+		    <div class="form-row">
+		      <div class="col">
+		        <div class="form-group">
+		          <label for="dni">DNI: </label>
+		          <input type="number" id="dni" class="form-control" min="0" formControlName="dni" [ngClass]="{ 'is-invalid': form.controls['dni'].touched && form.controls['dni'].invalid }">
+		          <div *ngIf="form.controls['dni'].touched && form.controls['dni'].invalid" class="invalid-feedback">
+		            <div *ngIf="form.controls['dni'].errors.required">Debe ingresar el DNI.</div>
+		          </div>
+		        </div>
+		      </div>
+		      <div class="col">
+		        <div class="form-group">
+		          <label for="tipo">Perfil: </label>
+		          <select id="tipo" formControlName="tipo" class="form-control">
+		            <option value="Administrador">Administrador</option>
+		            <option value="Cliente">Cliente</option>
+		            <option value="Especialista">Especialista</option>
+		            <option value="Recepcionista">Recepcionista</option>
+		          </select>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="form-row">
+		      <div class="col">
+		          <label for="mail">Mail: </label>
+		          <input type="text" id="mail" formControlName="mail" class="form-control" [ngClass]="{ 'is-invalid': form.controls['mail'].touched && form.controls['mail'].invalid }">
+		          <div *ngIf="form.controls['mail'].touched && form.controls['mail'].invalid" class="invalid-feedback">
+		            <div *ngIf="form.controls['mail'].errors.required">Debe ingresar un Mail.</div>
+		          </div>
+		      </div>
+		      <div class="col">
+		          <label for="pass">Contraseña: </label>
+		          <input type="password" id="pass" formControlName="pass" class="form-control" [ngClass]="{ 'is-invalid': form.controls['pass'].touched && form.controls['pass'].invalid }">
+		          <div *ngIf="form.controls['pass'].touched && form.controls['pass'].invalid" class="invalid-feedback">
+		            <div *ngIf="form.controls['pass'].errors.required">Debe ingresar una contraseña.</div>
+		          </div>
+		      </div>
+		    </div>
+		    <hr>
+	        <div class="form-row">
+	          <label for="imagen" style="margin-right: 5px;">Imagen: </label>	          
+			  <input 
+			  		name="imagen"
+			         type="file"
+			         accept="image/*"
+			         (change)="onFileSelect($event)">
+	        </div>
+		    <!-- <ngx-recaptcha2 #captchaElem [siteKey]="key" [size]="'normal'" [hl]="'es'" [theme]="'light'" [type]="'image'" formControlName="recaptcha">
+		    </ngx-recaptcha2>     -->
+		    <small *ngIf="error" class="text-danger font-weight-bold"><i class="fa fa-times"></i> {{errorMessage}} </small>
+		    <small *ngIf="success" class="text-success font-weight-bold"><i class="fas fa-check"></i> Servicio registrado
+		      correctamente. </small>
+		    <hr>
+		    <button type="submit" class="btn btn-primary" (click)="Submit()">Registrar</button><br>
+		  </form>
+      </div>      
+    </div>
+  </div>
+</div>
